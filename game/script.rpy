@@ -234,7 +234,7 @@ label job:
             jump reg_0
         "I want to do hardware checkout.":
             jump har_0
-        "I want to do events.":
+        "I want to help run events.":
             jump eve_0
 
 # Registration event 0
@@ -321,20 +321,44 @@ label har_fail:
 # Events event 0
 label eve_0:
     
-    scene bg registration
+    scene bg hackital
     with fade
 
     "Welp, guess I should make the most of it and help run events."
+    
+    show joseph neutral
+    
+    jo "Well hello again. Guess you're helping me with running events."
+    
+    menu:
+        "Yep!":
+            pass
+        "Yeah...":
+            pass
+            
+            
+    jo "Well first, we have a cup stacking tournament. So just wondering, do you know the best cup stack configuration?"
+    
+    menu:
+        "One thin line...":
+            jo "Uh... no."
+        "Just stack the cups into each other!":
+            jo "I mean I guess it won't fall, but your stack will be too short..."
+        "Some kind of pyramid thingy.":
+            jo "Exactly! Who knew that having a wide base would make your stack stable? Physics."
+            $ score += 1
 
     jump eve_1
 
 # Events event 1
 label eve_1:
+    scene bg hackital
 
     jump eve_2
 
 # Events event 2
 label eve_2:
+    scene bg hackital
 
     if score == 3:
         jump eve_pass
@@ -343,6 +367,7 @@ label eve_2:
 
 # Events pass event
 label eve_pass:
+    scene bg hackital
 
     # This ends the game.
     return
