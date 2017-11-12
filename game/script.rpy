@@ -265,10 +265,10 @@ label reg_0:
         "Nam, because he's top-tier":
             jump reg_1
         "Me, because I’m the best":
-            $ score = score - 1
+            $ score -= 1
             jump reg_1
         "Everyone, we need to work together":
-            $ score = score + 1
+            $ score += 1
             jump reg_1    
 
 # Registration event 1
@@ -289,13 +289,13 @@ label reg_1:
 
     menu:
        "Room 302, it’s to the left of the MLH Desk":
-            $score = score + 1
+            $score += 1
             jump reg_2
         "Room 433, look at the map next to the Stairwell":
             jump reg_2
         "Leave the building, look for the Building called District House":
             me "Go to the 10th Floor and look for a person called Tad Miller"
-            $score = score - 3
+            $score -= 3
             jump reg_2
 
 # Registration event 2
@@ -312,9 +312,9 @@ label reg_2:
 
    menu:
        "No, I don’t like you":
-            $score = score - 1
+            $score -= 1
         "(Drops Everything) Definetly, I can help you":
-            $score = score + 1
+            $score += 1
         "Not right now, but ask Brandon or Nam"
           
     if score == 3:
@@ -365,9 +365,17 @@ label reg_fail:
     sa "cyberbullying statistics and articles and informational workshops."
     sa "Sponsored by Hack Harassment, Intel, the Born This Way Foundation,"
     sa "and the Silicon Valley Community Foundation."
+    
+    "Maybe you should try again..."
+    
+    menu:
+        "Okay":
+            pass
+        "I'll do better":
+            pass
 
    # This ends the game.
-    return
+    jump reg_0
 
 # Hardware event 0
 label har_0:
@@ -467,7 +475,17 @@ label eve_1:
 label eve_2:
     scene bg hackital
     
+    jo "Hey, I know that you are working on event running, but a team is having an issue with merge conflicts on their visual novel."
+    jo "Can you help them?"
     
+    menu:
+        "I don't know Git but I can try...":
+            jo "Oh haha they are using SVN, so Git doesn't help anyways."
+            "You try your best to help the group, but they are unable to use much of your assistance."
+        "I don't know how to do that, but I can find someone that does.":
+            jo "That's a great answer, I'm sure you can find ONE person that knows how to do software at a hackathon."
+            score += 1
+            "You walk away to go ask around for help."
 
     if score == 3:
         jump eve_pass
@@ -476,13 +494,56 @@ label eve_2:
 
 # Events pass event
 label eve_pass:
+    
     scene bg hackital
+    
+    show joseph happy
+    
+    jo "Hey there, how's my favourite volunteer?"
+    
+    menu:
+        "Fine":
+            pass
+        "Great":
+            pass
+            
+    jo "I have been hearing only great things about your event running this Hackital."
+    
+    jo "So listen, I am graduating this year. I need someone to take my place."
+    
+    jo "Would you like to be the next head organiser of Hackital?"
+    
+    menu:
+        "Yeah I would love to!":
+            jo "Awesome, I'm sure you'll do amazingly."
+        "No, I have to focus on school...":
+            jo "That's a shame, you would have made Hackital legend - wait for it - dary."
+        "I don't go to GW, is that okay?":
+            jo "Wait what? Oh haha I mean I guess that might be fine..."
+            
+    "You smile as you Joseph shakes your hand for a job well done."
 
     # This ends the game.
     return
 
 # Events fail event
 label eve_fail:
+
+    scene bg hackital
+    
+    show joseph sad
+    
+    jo "Hey listen, we appreciate you trying to help but maybe this just wasn't for you."
+    
+    me "What do you mean?"
+    
+    jo "You kind of ran mediocre or horrible events. Most of the participants are looking for something higher tier."
+    
+    jo "I am graduating next year, and I hope I can find someone to run Hackital... Definitely not you though."
+    
+    jo "Maybe I'll just let it go."
+    
+    "You hang your head in disappointment. But then again, you didn't really want to volunteer in the first place."
 
     # This ends the game.
     return
