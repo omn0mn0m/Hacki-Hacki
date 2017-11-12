@@ -3,53 +3,173 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define s = Character("Samsara")
-define j = Character("Joseph")
-define player = Character("Me")
+define me     = Character("Me")
 
-# The game starts here.
+# Main Characters
+define sa     = Character("Samsara")
+define se     = Character("Avi")
+define jo     = Character("Joseph")
 
+# Background Characters
+define part_0 = Character("Participant 0")
+define part_1 = Character("Participant 1")
+define part_2 = Character("Participant 2")
+
+
+# The game starts here. Joseph says he's looking for the best volunteer at GWU
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    jump pre_0
 
-    scene bg room
+# Signing up for Hackital as a participant
+label pre_0:
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    jump pre_1
 
-    show samsara happy
-
-    # These display lines of dialogue.
-
-    s "Hey... would you like to volunteer for Hackital, the hackathon in the nation's capital?"
-
-    menu:
+default done_flashback = False
     
-        "Sure...":
-            jump morning_1
-            
-        "I'd love to!":
-            jump morning_1
+# You getting a red shirt instead of a black shirt / flashback
+label pre_1:
 
-label morning_1:
+    if done_flashback:
+        $ done_flashback = False
+        jump pre_5
 
-    s "Awesome! See you in the morning!"
+    jump pre_2
+
+# Joseph pitching Hackital to OS
+label pre_2:
+
+    jump pre_3
+
+# Joseph pitching Hackital to GWTC
+label pre_3:
+
+    jump pre_4
+
+# Joseph books the Hackital venue and realises he needs more volunteers
+label pre_4:
+
+    $ done_flashback = True
+    jump pre_1
     
-    scene bg joseph_room
-    with fade
-    
-    "I arrived at Joseph's room in the morning and was greeted with a large cart."
-    
-    show joseph neutral
-    
-    j "Thanks for showing up! We have 15 trips to make and then we'll be done moving all the stuff to the Marvin Center."
-    
-    player "Sounds fun..."
+# Joseph telling you that you are a volunteer
+label pre_5:
+
+    jump sam_0
+
+# Samsara asking if you'll be making a #HackHarassment hack
+label sam_0:
+
+    if done_flashback:
+        $ done_flashback = False
+        jump job
+
+    jump sam_1
+
+# Making posters at 3am (with foreshadowing)
+label sam_1:
+
+    jump sam_2
+
+# Samsara explaining what #HackHarassment is
+label sam_2:
+
+    $ done_flashback = True
+    jump sam_0
+
+# Joseph gives you a choice what you want to do
+label job:
 
     # This ends the game.
+    return
 
+# Registration event 0
+label reg_0:
+
+    # This ends the game.
+    return
+
+# Registration event 1
+label reg_1:
+
+    # This ends the game.
+    return
+
+# Registration event 2
+label reg_2:
+
+    # This ends the game.
+    return
+
+# Registration pass event
+label reg_pass:
+
+    # This ends the game.
+    return
+
+# Registration fail event
+label reg_fail:
+
+    # This ends the game.
+    return
+
+# Hardware event 0
+label har_0:
+
+    # This ends the game.
+    return
+
+# Hardware event 1
+label har_1:
+
+    # This ends the game.
+    return
+
+# Hardware event 2
+label har_2:
+
+    # This ends the game.
+    return
+
+# Hardware pass event
+label har_pass:
+
+    # This ends the game.
+    return
+
+# Hardware fail event
+label har_fail:
+
+    # This ends the game.
+    return
+
+# Events event 0
+label eve_0:
+
+    # This ends the game.
+    return
+
+# Events event 1
+label eve_1:
+
+    # This ends the game.
+    return
+
+# Events event 2
+label eve_2:
+
+    # This ends the game.
+    return
+
+# Events pass event
+label eve_pass:
+
+    # This ends the game.
+    return
+
+# Events fail event
+label eve_fail:
+
+    # This ends the game.
     return
