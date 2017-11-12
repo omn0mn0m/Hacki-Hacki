@@ -21,12 +21,17 @@ default score          = 0
 
 # The game starts here. Joseph says he's looking for the best volunteer at GWU
 label start:
-
+    jo "My Man... I am looking for Top Tier Volunteers"
+    me "Hackital what is that?"
+    jo "Hacking the Capital"
+    jo "Hackital !!!"
+    me "That sounds awesome"
     jump pre_0
 
 # Signing up for Hackital as a participant
 label pre_0:
-
+    jo "Sign up Bro !!!"
+    me "Should I?"
     jump pre_1
     
 # You getting a red shirt instead of a black shirt / flashback
@@ -40,27 +45,38 @@ label pre_1:
 
 # Joseph pitching Hackital to OS
 label pre_2:
+    jo "Hackital is happening in a week, SIGN UP !"
+    jo "Gabe approves this message"
+    sa "please also come to the HACK HASSMENT talks !"
 
     jump pre_3
 
 # Joseph pitching Hackital to GWTC
 label pre_3:
-
+    jo "We are NERDS, want to meet more people like us !!!"
+    jo "Come to Hackital, SIGN UP !" 
     jump pre_4
 
 # Joseph books the Hackital venue and realises he needs more volunteers
 label pre_4:
-
+    jo "(Starring into the void)"
+    jo "I just realized that I am short staffed"
+    sa "I can ask some people to come and help" 
     $ done_flashback = True
     jump pre_1
     
 # Joseph telling you that you are a volunteer
 label pre_5:
-
+    jo "CONGRATS, I have an exciting opportunity for you !"
+    jo "You have been selected from a pool of candidates"
+    jo "Welcome to Hackital !!!"
     jump sam_0
 
 # Samsara asking if you'll be making a #HackHarassment hack
 label sam_0:
+
+    sa "I hope you are interested in making the world a better place"
+    sa "Are you going to make a #HackHarassment hack ?"
 
     if done_flashback:
         $ done_flashback = False
@@ -70,6 +86,10 @@ label sam_0:
 
 # Making posters at 3am (with foreshadowing)
 label sam_1:
+    sa "(Exhausted)"
+    sa "It's 3 am, and we are still going strong"
+    me "So sleepy..."
+    sa "Posters are fun to make"
 
     jump sam_2
 
@@ -82,6 +102,12 @@ label sam_2:
 # Joseph gives you a choice what you want to do
 label job:
 
+    jo "(Feeling the hype)"
+    jo "We have 3 main station that we need people at"
+    jo "Registration , MLH Hardware Checkout and Event Coordinator"
+    jo "I need help in one of them"
+    me "Though choice, they all sound interesting"
+
     menu:
         "I want to do registration.":
             jump reg_0
@@ -92,12 +118,16 @@ label job:
 
 # Registration event 0
 label reg_0:
-
+    sa "Thanks for helping us with registration"
+    sa "Take a computer and help people check-in"
+    me "Do they need to sign the form"
+    sa "Absolutely, even if they are over 18"
+    sa "If you have any questions ask Nam, Adrian or Sebastian"
     jump reg_1
 
 # Registration event 1
 label reg_1:
-
+    me "I need to spell check my dialogue"
     jump reg_2
 
 # Registration event 2
