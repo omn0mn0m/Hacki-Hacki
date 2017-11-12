@@ -15,6 +15,9 @@ define part_0 = Character("Participant 0")
 define part_1 = Character("Participant 1")
 define part_2 = Character("Participant 2")
 
+# Game variables
+default done_flashback = False
+default score          = 0
 
 # The game starts here. Joseph says he's looking for the best volunteer at GWU
 label start:
@@ -25,8 +28,6 @@ label start:
 label pre_0:
 
     jump pre_1
-
-default done_flashback = False
     
 # You getting a red shirt instead of a black shirt / flashback
 label pre_1:
@@ -81,26 +82,31 @@ label sam_2:
 # Joseph gives you a choice what you want to do
 label job:
 
-    # This ends the game.
-    return
+    menu:
+        "I want to do registration.":
+            jump reg_0
+        "I want to do hardware checkout.":
+            jump har_0
+        "I want to do events.":
+            jump eve_0
 
 # Registration event 0
 label reg_0:
 
-    # This ends the game.
-    return
+    jump reg_1
 
 # Registration event 1
 label reg_1:
 
-    # This ends the game.
-    return
+    jump reg_2
 
 # Registration event 2
 label reg_2:
 
-    # This ends the game.
-    return
+    if score == 3:
+        jump reg_pass
+    else:
+        jump reg_fail
 
 # Registration pass event
 label reg_pass:
@@ -117,20 +123,20 @@ label reg_fail:
 # Hardware event 0
 label har_0:
 
-    # This ends the game.
-    return
+    jump har_1
 
 # Hardware event 1
 label har_1:
 
-    # This ends the game.
-    return
+    jump har_2
 
 # Hardware event 2
 label har_2:
 
-    # This ends the game.
-    return
+    if score == 3:
+        jump har_pass
+    else:
+        jump har_fail
 
 # Hardware pass event
 label har_pass:
@@ -147,20 +153,20 @@ label har_fail:
 # Events event 0
 label eve_0:
 
-    # This ends the game.
-    return
+    jump eve_1
 
 # Events event 1
 label eve_1:
 
-    # This ends the game.
-    return
+    jump eve_2
 
 # Events event 2
 label eve_2:
 
-    # This ends the game.
-    return
+    if score == 3:
+        jump eve_pass
+    else:
+        jump eve_fail
 
 # Events pass event
 label eve_pass:
