@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+ï»¿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -89,7 +89,7 @@ label pre_2:
     "At my operating systems class two weeks ago..."
     
     scene bg os
-    show joseph neutral
+    show joseph happy
     with fade
     
 #    jo "Hey everyone, in case you didn't know, Hackital is in two weeks. So register at hackital.io."
@@ -111,7 +111,7 @@ label pre_3:
     "At Tech Collective four weeks ago..."
     
     scene bg gwtc
-    show joseph neutral
+    show joseph helmet
     with fade
     
     jo "We are NERDS, want to meet more people like us !!!"
@@ -128,12 +128,12 @@ label pre_4:
     "Six months ago..."
     
     scene bg gw
-    show joseph neutral
+    show joseph happy
     with fade
     jo "... And that is why you should host Hackital again this year."
     jo "(Starring into the void)"
     
-    show joseph sad
+    show joseph happy
     jo "I just realized that I am short staffed"
     
     hide joseph
@@ -146,9 +146,11 @@ label pre_4:
 # Joseph telling you that you are a volunteer
 label pre_5:
 
+    scene bg registration
+    
     "Joseph approaches the table."
     
-    show joseph neutral
+    show joseph happy
     with fade
     
     jo "Hey there, how's my newest volunteer?"
@@ -165,6 +167,8 @@ label pre_5:
 
 # Samsara asking if you'll be making a #HackHarassment hack
 label sam_0:
+
+    scene bg registration
 
     sa "Sorry to interrupt, but just checking, even if you are volunteering you should be aware that you can still submit a hack to the HackHarassment challenge."
 
@@ -251,20 +255,20 @@ label reg_0:
     sa "Absolutely, even if they are over 18"
     sa "If you have any questions ask Nam, Adrian or Sebastian"
 
-   "(You see a participant approach Samsara)"
+    "(You see a participant approach Samsara)"
 
-   sa "Her group needs a proficient programmer, who should I ask?"
+    sa "Her group needs a proficient programmer, who should I ask?"
     
-   me "Thinking"
+    me "Thinking"
 
-   menu:
+    menu:
         "Brandon":
             jump reg_1
         "Sebastian":
             jump reg_1
         "Nam, because he's top-tier":
             jump reg_1
-        "Me, because I’m the best":
+        "Me, because Iâ€™m the best":
             $ score -= 1
             jump reg_1
         "Everyone, we need to work together":
@@ -273,34 +277,34 @@ label reg_0:
 
 # Registration event 1
 label reg_1:
-    scene gb registration
+    scene bg registration
     with fade
 
     "You figure out that the Registration Desk became the Front Desk"
     
     show avi happy
-
-    se "Nam and Sebastian are helping out people"
-    se "Can you point them to the room where the Git Workshop is located"
+    
+    sa "Nam and Sebastian are helping out people"
+    sa "Can you point them to the room where the Git Workshop is located"
     
     "You approach the person"
 
     me "Hey, the Git Workshop that Samsara and Nam are leading is in"
 
     menu:
-       "Room 302, it’s to the left of the MLH Desk":
-            $score += 1
+        "Room 302, itâ€™s to the left of the MLH Desk":
+            $ score += 1
             jump reg_2
         "Room 433, look at the map next to the Stairwell":
             jump reg_2
         "Leave the building, look for the Building called District House":
             me "Go to the 10th Floor and look for a person called Tad Miller"
-            $score -= 3
+            $ score -= 3
             jump reg_2
 
 # Registration event 2
 label reg_2:
-    scene gb registration
+    scene bg registration
     with fade
 
     "You accross a group that needs your help"
@@ -310,8 +314,8 @@ label reg_2:
     "They answer yes"
     "You debate if you should answer"
 
-   menu:
-       "No, I don’t like you":
+    menu:
+        "No, I donâ€™t like you":
             $score -= 1
         "(Drops Everything) Definetly, I can help you":
             $score += 1
@@ -324,8 +328,8 @@ label reg_2:
 
 # Registration pass event
 label reg_pass:
-    scene gb registration
-    with face
+    scene bg registration
+    with fade
 
     show samsara happy
     sa "You are awesome"
@@ -346,12 +350,12 @@ label reg_pass:
 
 # Registration fail event
 label reg_fail:
-    scene gb registration
-    with face
+    scene bg registration
+    with fade
 
     show samsara sad
     sa "Thanks for trying your best"
-    sa "But a lot of people told me that you’ve disrespectfull and inconsiderate"
+    sa "But a lot of people told me that youâ€™ve disrespectfull and inconsiderate"
     sa "I though you could represent Hack Harrasment"
     sa "I will ask you to turn in your red shirt"
 
@@ -410,20 +414,20 @@ label har_1:
     scene bg hardware
     with fade
     
-    #Flashback
+#Flashback
 
     show avi neutral    
 
     av "Someone needs Soylent"
-    me "(Remembers) Avi told that we have more people than expected"
-    me "We don’t have enought Soylent for everyone, but they have been working so hard"
+    me "(Remembers) Avi told me that we have more people than expected"
+    me "We don't have enought Soylent for everyone, but they have been working so hard"
     me "What should I answer ???"
     menu:
         "No, I am sorry":
-            $ score += 1
+            $score = score + 1
             jump har_2
 
-       "Yes, Take one":
+        "Yes, Take one":
             jump har_2
 
 # Hardware event 2
@@ -438,18 +442,17 @@ label har_2:
     jo "You need to make sure that the board is returned after use"
     me "Yes, Sir !!!"
 
-   "What should I do to ensure the board is returned ?"
+    "What should I do to ensure the board is returned ?"
 
-   menu:
+    menu:
         "Ask for ID":
             pass
-       "Ask for $5":
+        "Ask for $5":
             pass
-        
-       "An undying bond of friendship":
-            $ score = score + 1
+        "Trust":
+            $score = score + 1
 
-   if score == 3:
+    if score == 3:
         jump har_pass
     else:
         jump har_fail
@@ -483,13 +486,13 @@ label har_fail:
 
     show avi sad
 
-    av "You messed up, we need to find all the hadware if not MLH is not endorsing us again"
+    av "You messed up, we need to find all the hardware if not MLH is not endorsing us again"
     av "Hackital will not happen next year"
 
     jump har_0
     # This ends the game.
     #return
-
+    
 # Events event 0
 label eve_0:
     
@@ -498,7 +501,7 @@ label eve_0:
 
     "Welp, guess I should make the most of it and help run events."
     
-    show joseph neutral
+    show joseph happy
     
     jo "Well hello again. Guess you're helping me with running events."
     
@@ -558,7 +561,7 @@ label eve_2:
             "You try your best to help the group, but they are unable to use much of your assistance."
         "I don't know how to do that, but I can find someone that does.":
             jo "That's a great answer, I'm sure you can find ONE person that knows how to do software at a hackathon."
-            score += 1
+            $ score += 1
             "You walk away to go ask around for help."
 
     if score == 3:
@@ -605,7 +608,7 @@ label eve_fail:
 
     scene bg hackital
     
-    show joseph sad
+    show joseph happy
     
     jo "Hey listen, we appreciate you trying to help but maybe this just wasn't for you."
     
