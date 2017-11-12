@@ -377,7 +377,6 @@ label reg_fail:
    # This ends the game.
     jump reg_0
 
-# Hardware event 0
 label har_0:
 
     scene bg hardware
@@ -385,21 +384,72 @@ label har_0:
     
     "Welp, guess I should make the most of it and help manage the hardware."
     
-    show avi neutral
+    show avi happy
     
-    "A new player approaches."
+    "Someone approaches my desk"
 
-    jump har_1
+    av "This participant needs a Microcontroller for my project."
+    av "I think the name rhymes with amino"
+
+    me "What does he needs"
+
+    menu:
+        "Arduino":
+            $ score = score + 1
+            jump har_1
+        "Dell(R) XPS13":
+            jump har_1
+        "Rasperry PI":
+            jump har_1
+        "Alienware Laptop":
+            jump har_1
 
 # Hardware event 1
 label har_1:
 
-    jump har_2
+    scene bg hardware
+    with fade
+    
+    #Flashback
+
+    show avi neutral    
+
+    av "Someone needs Soylent"
+    me "(Remembers) Avi told that we have more people than expected"
+    me "We don’t have enought Soylent for everyone, but they have been working so hard"
+    me "What should I answer ???"
+    menu:
+        "No, I am sorry":
+            $ score += 1
+            jump har_2
+
+       "Yes, Take one":
+            jump har_2
 
 # Hardware event 2
 label har_2:
 
-    if score == 3:
+    scene bg hardware
+    with fade
+
+    show joseph happy
+
+    jo "She needs a Qualcomm(R) Dragon Board"
+    jo "You need to make sure that the board is returned after use"
+    me "Yes, Sir !!!"
+
+   "What should I do to ensure the board is returned ?"
+
+   menu:
+        "Ask for ID":
+            pass
+       "Ask for $5":
+            pass
+        
+       "An undying bond of friendship":
+            $ score = score + 1
+
+   if score == 3:
         jump har_pass
     else:
         jump har_fail
@@ -407,14 +457,38 @@ label har_2:
 # Hardware pass event
 label har_pass:
 
+    scene bg hardware
+    with fade
+
+    show avi happy
+
+    av "Excellent job !!"
+    av "You look so tired"
+    av "Go home, you have earned it"
+
+
     # This ends the game.
     return
 
 # Hardware fail event
 label har_fail:
 
+    scene bg hardware
+    with fade
+
+    "After a long weekend volunteering @ Hackital"
+    "I take one last look at the Hardware room..."
+    "Everything is missing, everyone has gone home"
+    "You look back at Avi"
+
+    show avi sad
+
+    av "You messed up, we need to find all the hadware if not MLH is not endorsing us again"
+    av "Hackital will not happen next year"
+
+    jump har_0
     # This ends the game.
-    return
+    #return
 
 # Events event 0
 label eve_0:
