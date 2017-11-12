@@ -136,6 +136,7 @@ label pre_4:
     show joseph sad
     jo "I just realized that I am short staffed"
     
+    hide joseph
     show samsara neutral
     sa "I can ask some people to come and help" 
 
@@ -285,6 +286,10 @@ label har_0:
     with fade
     
     "Welp, guess I should make the most of it and help manage the hardware."
+    
+    show avi neutral
+    
+    "A new player approaches."
 
     jump har_1
 
