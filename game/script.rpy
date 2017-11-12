@@ -237,7 +237,6 @@ label job:
         "I want to help run events.":
             jump eve_0
 
-# Registration event 0
 label reg_0:
     scene bg registration
     with fade
@@ -251,17 +250,73 @@ label reg_0:
     me "Do they need to sign the form"
     sa "Absolutely, even if they are over 18"
     sa "If you have any questions ask Nam, Adrian or Sebastian"
+
+   "(You see a participant approach Samsara)"
+
+   sa "Her group needs a proficient programmer, who should I ask?"
     
-    jump reg_1
+   me "Thinking"
+
+   menu:
+        "Brandon":
+            jump reg_1
+        "Sebastian":
+            jump reg_1
+        "Nam, because he's top-tier":
+            jump reg_1
+        "Me, because I’m the best":
+            $ score = score - 1
+            jump reg_1
+        "Everyone, we need to work together":
+            $ score = score + 1
+            jump reg_1    
 
 # Registration event 1
 label reg_1:
+    scene gb registration
+    with fade
 
-    jump reg_2
+    "You figure out that the Registration Desk became the Front Desk"
+    
+    show avi happy
+
+    se "Nam and Sebastian are helping out people"
+    se "Can you point them to the room where the Git Workshop is located"
+    
+    "You approach the person"
+
+    me "Hey, the Git Workshop that Samsara and Nam are leading is in"
+
+    menu:
+       "Room 302, it’s to the left of the MLH Desk":
+            $score = score + 1
+            jump reg_2
+        "Room 433, look at the map next to the Stairwell":
+            jump reg_2
+        "Leave the building, look for the Building called District House":
+            me "Go to the 10th Floor and look for a person called Tad Miller"
+            $score = score - 3
+            jump reg_2
 
 # Registration event 2
 label reg_2:
+    scene gb registration
+    with fade
 
+    "You accross a group that needs your help"
+
+    me "You need help?"
+
+    "They answer yes"
+    "You debate if you should answer"
+
+   menu:
+       "No, I don’t like you":
+            $score = score - 1
+        "(Drops Everything) Definetly, I can help you":
+            $score = score + 1
+        "Not right now, but ask Brandon or Nam"
+          
     if score == 3:
         jump reg_pass
     else:
@@ -269,14 +324,49 @@ label reg_2:
 
 # Registration pass event
 label reg_pass:
+    scene gb registration
+    with face
 
+    show samsara happy
+    sa "You are awesome"
+    sa "Thanks for all your help"
+    sa "You have helped Hack Harrasment"
+
+    "Talking the human controlling this game"
+
+    sa "Every Hackital team can take part in the challenge:"
+    sa "creating a tech tool to help make the Internet a more inclusive place."
+    sa "The top 3 teams with the coolest products will win prizes."
+    sa "Competing teams will have access to online harassment and"
+    sa "cyberbullying statistics and articles and informational workshops."
+    sa "Sponsored by Hack Harassment, Intel, the Born This Way Foundation,"
+    sa "and the Silicon Valley Community Foundation."
     # This ends the game.
     return
 
 # Registration fail event
 label reg_fail:
+    scene gb registration
+    with face
 
-    # This ends the game.
+    show samsara sad
+    sa "Thanks for trying your best"
+    sa "But a lot of people told me that you’ve disrespectfull and inconsiderate"
+    sa "I though you could represent Hack Harrasment"
+    sa "I will ask you to turn in your red shirt"
+
+    "Talking the human controlling this game"
+
+    sa "I am crying inside a bit, you might to talk to me outside of this game"
+    sa "Every Hackital team can take part in the challenge:"
+    sa "creating a tech tool to help make the Internet a more inclusive place."
+    sa "The top 3 teams with the coolest products will win prizes."
+    sa "Competing teams will have access to online harassment and"
+    sa "cyberbullying statistics and articles and informational workshops."
+    sa "Sponsored by Hack Harassment, Intel, the Born This Way Foundation,"
+    sa "and the Silicon Valley Community Foundation."
+
+   # This ends the game.
     return
 
 # Hardware event 0
@@ -347,18 +437,37 @@ label eve_0:
         "Some kind of pyramid thingy.":
             jo "Exactly! Who knew that having a wide base would make your stack stable? Physics."
             $ score += 1
+            
+    "You and Joe watch the cup stacking event go down (in some cases literally). Everyone is super hype."
 
     jump eve_1
 
 # Events event 1
 label eve_1:
     scene bg hackital
+    
+    jo "Okay, the cup stacking event was pretty good, but some people want to play video games. What game should they play?"
+    
+    menu:
+        "Super Smash Bros Melee":
+            jo "Great choice; Avi was going to lead that already. So it was a trick question. Good thing I didn't fool you!"
+            $ score += 1
+        "Wii Sports Resort":
+            jo "We don't even own a Wii... At least you chose a multiplayer game."
+        "The Elder Scrolls: Skyrim":
+            jo "Great game, but it's single-player and we wouldn't even get past the first objective due to side-quests."
+            
+    jo "Well, I'm going home to sleep... Have fun figuring out where the nap room is!"
+    
+    "I look at my watch. It's 2am. Who even would play video games at this hour? I thought people studied instead."
 
     jump eve_2
 
 # Events event 2
 label eve_2:
     scene bg hackital
+    
+    
 
     if score == 3:
         jump eve_pass
