@@ -27,8 +27,13 @@ label start:
     show character joseph
     
     jo "Hello there! My name is Joseph Schiarizzi, and I am looking for the best volunteer at Hackital."
-    jo "I am one of the organisers and would love for someone to just appear in front of me..."
-    
+#    jo "I am one of the organisers and would love for someone to just appear in front of me..."
+    jo "My Man... I am looking for Top Tier Volunteers"
+    me "Hackital what is that?"
+    jo "Hacking the Capital"
+    jo "Hackital !!!"
+    me "That sounds awesome"
+
     jump pre_0
 
 # Signing up for Hackital as a participant
@@ -91,8 +96,10 @@ label pre_2:
     show character joseph
     with fade
     
-    jo "Hey everyone, in case you didn't know, Hackital is in two weeks. So register at hackital.io."
-    
+#    jo "Hey everyone, in case you didn't know, Hackital is in two weeks. So register at hackital.io."
+    jo "We are NERDS, want to meet more people like us !!!"
+    jo "Come to Hackital, SIGN UP !" 
+
     "For some reason this pitch sounded familiar."
 
     jump pre_3
@@ -122,10 +129,15 @@ label pre_4:
     show character joseph
     with fade
     
+    show character samsara
+    with fade
+    
     jo "... And that is why you should let us host Hackital again this year."
+    jo "(Starring into the void)"
+    jo "I just realized that I am short staffed"
+    sa "I can ask some people to come and help" 
     
     show character gw
-    
     gw "Works for me."
 
     $ done_flashback = True
@@ -172,6 +184,8 @@ label sam_1:
     scene bg dorm
     show character samsara
     with fade
+
+    sa "(Exhausted)"    
 
     sa "Thank you so much for helping with these posters."
     
