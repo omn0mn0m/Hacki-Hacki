@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -7,7 +7,7 @@ define me     = Character("Me")
 
 # Main Characters
 define sa     = Character("Samsara")
-define se     = Character("Avi")
+define av     = Character("Avi")
 define jo     = Character("Joseph")
 define gw     = Character("GW Person")
 
@@ -24,15 +24,11 @@ default score          = 0
 label start:
     scene bg blue
     
-    show character joseph
+    show joseph happy
     
     jo "Hello there! My name is Joseph Schiarizzi, and I am looking for the best volunteer at Hackital."
 #    jo "I am one of the organisers and would love for someone to just appear in front of me..."
-    jo "My Man... I am looking for Top Tier Volunteers"
-    me "Hackital what is that?"
-    jo "Hacking the Capital"
-    jo "Hackital !!!"
-    me "That sounds awesome"
+    jo "I am looking for Top Tier Volunteers"
 
     jump pre_0
 
@@ -55,7 +51,7 @@ label pre_1:
     "The morning of Hackital, I commuted from my dorm bulding on campus so that I could be the first to show up."
     "I'm so glad that they gave me travel reimbursement for that 2-block trip!"
     
-    show character samsara
+    show samsara happy
     with fade
     
     sa "What size shirt?"
@@ -93,12 +89,17 @@ label pre_2:
     "At my operating systems class two weeks ago..."
     
     scene bg os
-    show character joseph
+    show joseph neutral
     with fade
     
 #    jo "Hey everyone, in case you didn't know, Hackital is in two weeks. So register at hackital.io."
     jo "We are NERDS, want to meet more people like us !!!"
     jo "Come to Hackital, SIGN UP !" 
+    
+    me "Hackital what is that?"
+    jo "Hacking the Capital"
+    jo "Hackital !!!"
+    me "That sounds awesome"
 
     "For some reason this pitch sounded familiar."
 
@@ -110,35 +111,33 @@ label pre_3:
     "At Tech Collective four weeks ago..."
     
     scene bg gwtc
-    show character joseph
+    show joseph neutral
     with fade
     
-    jo "Hey everyone, in case you didn't know, Hackital is in two weeks. So register at hackital.io."
+    jo "We are NERDS, want to meet more people like us !!!"
+    jo "Come to Hackital, SIGN UP !" 
     
     "Joseph was very passionate about getting people to sign up for Hackital. He's pitched it to me at least 10 times now!"
     "Of course, that might have to do with him organising this event."
 
     jump pre_4
 
-# Joseph books the Hackital venue and realises he needs more volunteers
+# Joseph realises he needs more volunteers
 label pre_4:
 
-    "One year ago..."
+    "Six months ago..."
     
     scene bg gw
-    show character joseph
+    show joseph neutral
     with fade
-    
-    show character samsara
-    with fade
-    
-    jo "... And that is why you should let us host Hackital again this year."
+    jo "... And that is why you should host Hackital again this year."
     jo "(Starring into the void)"
-    jo "I just realized that I am short staffed"
-    sa "I can ask some people to come and help" 
     
-    show character gw
-    gw "Works for me."
+    show joseph sad
+    jo "I just realized that I am short staffed"
+    
+    show samsara neutral
+    sa "I can ask some people to come and help" 
 
     $ done_flashback = True
     jump realisation
@@ -148,7 +147,7 @@ label pre_5:
 
     "Joseph approaches the table."
     
-    show character joseph
+    show joseph neutral
     with fade
     
     jo "Hey there, how's my newest volunteer?"
@@ -182,7 +181,7 @@ label sam_1:
     "The previous night..."
     
     scene bg dorm
-    show character samsara
+    show samsara neutral
     with fade
 
     sa "(Exhausted)"    
@@ -214,7 +213,12 @@ label sam_1:
 # Joseph gives you a choice what you want to do
 label job:
 
-    show character joseph
+    show joseph neutral
+    
+    jo "(Feeling the hype)"
+    jo "We have 3 main station that we need people at"
+    jo "Registration , MLH Hardware Checkout and Event Coordinator"
+    jo "I need help in one of them"
 
     jo "Hey you still there? I was explaining the different volunteer positions you can do."
     
@@ -238,6 +242,14 @@ label reg_0:
     with fade
     
     "Welp, guess I should make the most of it and work the registration table."
+    
+    show samsara happy
+    
+    sa "Thanks for helping us with registration"
+    sa "Take a computer and help people check-in"
+    me "Do they need to sign the form"
+    sa "Absolutely, even if they are over 18"
+    sa "If you have any questions ask Nam, Adrian or Sebastian"
     
     jump reg_1
 
