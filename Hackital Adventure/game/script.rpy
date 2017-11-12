@@ -3,8 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-
+define s = Character("Samsara")
+define j = Character("Joseph")
+define player = Character("Me")
 
 # The game starts here.
 
@@ -20,13 +21,34 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show samsara happy
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    s "Hey... would you like to volunteer for Hackital, the hackathon in the nation's capital?"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    menu:
+    
+        "Sure...":
+            jump morning_1
+            
+        "I'd love to!":
+            jump morning_1
+
+label morning_1:
+
+    s "Awesome! See you in the morning!"
+    
+    scene bg joseph_room
+    with fade
+    
+    "I arrived at Joseph's room in the morning and was greeted with a large cart."
+    
+    show joseph neutral
+    
+    j "Thanks for showing up! We have 15 trips to make and then we'll be done moving all the stuff to the Marvin Center."
+    
+    player "Sounds fun..."
 
     # This ends the game.
 
