@@ -22,7 +22,7 @@ default score          = 0
 
 # The game starts here. Joseph says he's looking for the best volunteer at GWU
 label start:
-    scene bg blue
+    scene bg dorm
     
     show joseph happy
     
@@ -110,7 +110,7 @@ label pre_3:
 
     "At Tech Collective four weeks ago..."
     
-    scene bg gwtc
+    scene bg os
     show joseph helmet
     with fade
     
@@ -127,7 +127,7 @@ label pre_4:
 
     "Six months ago..."
     
-    scene bg gw
+    scene bg os
     show joseph happy
     with fade
     jo "... And that is why you should host Hackital again this year."
@@ -218,7 +218,7 @@ label sam_1:
 # Joseph gives you a choice what you want to do
 label job:
 
-    show joseph neutral
+    show joseph happy
     
     jo "(Feeling the hype)"
     jo "We have 3 main station that we need people at"
@@ -606,7 +606,6 @@ label eve_pass:
 # Events fail event
 label eve_fail:
 
-    scene bg hackital
     
     show joseph happy
     
@@ -614,6 +613,7 @@ label eve_fail:
     
     me "What do you mean?"
     
+    scene bg hackital
     jo "You kind of ran mediocre or horrible events. Most of the participants are looking for something higher tier."
     
     jo "I am graduating next year, and I hope I can find someone to run Hackital... Definitely not you though."
