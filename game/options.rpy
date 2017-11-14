@@ -23,13 +23,13 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "1.1"
 
 
 ## Text that is placed on the game's about screen. To insert a blank line
 ## between paragraphs, write \n\n.
 
-define gui.about = _("")
+define gui.about = _("This game was originally created for Hackital 2017 in less than 4 hours of time.")
 
 
 ## A short name for the game used for executables and directories in the built

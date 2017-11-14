@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -34,7 +34,7 @@ label start:
     jo "Before we begin... are you a weeb?"
     
     menu:
-        "Hai hai.":
+        "Hai hai!":
             $ weeb_mode = True
         "What's a weeb?":
             $ weeb_mode = False
