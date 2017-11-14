@@ -18,17 +18,26 @@ define part_2 = Character("Participant 2")
 
 # Game variables
 default done_flashback = False
+default weeb_mode      = False
 default score          = 0
 
 # The game starts here. Joseph says he's looking for the best volunteer at GWU
 label start:
-    scene bg dorm
+    scene bg hackital
     
     show joseph happy
     
     jo "Hello there! My name is Joseph Schiarizzi, and I am looking for the best volunteer at Hackital."
 #    jo "I am one of the organisers and would love for someone to just appear in front of me..."
     jo "I am looking for Top Tier Volunteers"
+    
+    jo "Before we begin... are you a weeb?"
+    
+    menu:
+        "Hai hai.":
+            $ weeb_mode = True
+        "What's a weeb?":
+            $ weeb_mode = False
 
     jump pre_0
 
@@ -110,7 +119,7 @@ label pre_3:
 
     "At Tech Collective four weeks ago..."
     
-    scene bg os
+    scene bg tech
     show joseph helmet
     with fade
     
@@ -155,6 +164,10 @@ label pre_5:
     
     jo "Hey there, how's my newest volunteer?"
     
+    if weeb_mode:
+        me "Nani????"
+        jo "Omae wa mo shinderu..."
+    
     me "I didn't ask for this..."
     
     jo "What do you mean? You wanted to volunteer."
@@ -197,9 +210,11 @@ label sam_1:
     
     sa "If you're having fun now, wait until tomorrow! You're gonna really enjoy it."
     
-    me "Yeah I hope so. I'm putting off 9001 essays for this."
+    me "Yeah I hope so."
     
-    sa "You should write an essay about your #HackHarassment submission."
+    if weeb_mode: 
+        me "I'm putting off 9001 essays for this." 
+        sa "You should write an essay about your #HackHarassment submission."
     
     sa "Anyways, I got to go get 2 hours of sleep. See you at 7am tomorrow!"
     
