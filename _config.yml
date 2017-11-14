@@ -1,1 +1,6 @@
 theme: jekyll-theme-architect
+
+title: "Hacki Hacki Hackital Club!"
+description: "A visual novel based on Hackital, inspired by Doki Doki Literature Club"
+
+show_downloads: true
